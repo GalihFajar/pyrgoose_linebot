@@ -56,6 +56,7 @@ function handleEvent(event) {
     const post_tugas = async() =>{
       try{
         await axios.patch('https://pyrgoose.firebaseio.com/tugas.json', posted);
+        console.log("succeses");
       }
       catch(error){
         console.log(error);
