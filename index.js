@@ -49,11 +49,11 @@ function handleEvent(event) {
         const response = await axios.get("https://pyrgoose.firebaseio.com/tugas.json");
         console.log(response, "ini response");
         return client.replyMessage(event.replyToken, {
-          type : 'text', text : response.kejartel
+          type : 'text', text : "bisa ga sih gan elah"
         });
       }
       catch(err){ 
-        console.log(err);
+        new Error("Cannot get tugas!")
       }
     }
     return_tugas();
