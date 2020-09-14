@@ -55,6 +55,7 @@ function handleEvent(event) {
         console.log(err);
       }
     }
+    return_tugas();
   }
   if(incomingMessage[0] === '/tugas_post'){
     incomingMessage.shift();
