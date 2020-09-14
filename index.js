@@ -30,7 +30,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 function handleEvent(event) {
-  const incomingMessage = event.message.text.split();
+  const incomingMessage = event.message.text.split(" ");
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
