@@ -30,16 +30,16 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 function handleEvent(event) {
-  const incomingMessage = event.message.text;
+  const incomingMessage = event.message.text.split();
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
 
   // create a echoing text message
-  if(incomingMessage === 'hai'){
+  if(incomingMessage[0] === '/echo'){
     return client.replyMessage(event.replyToken, {
-      type : 'text', text : "hai juga"
+      type : 'text', text : incomingMessage[1]
     });
   }
   // const echo = { type: 'text', text: event.message.text };
