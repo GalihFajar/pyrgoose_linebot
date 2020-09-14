@@ -43,6 +43,19 @@ function handleEvent(event) {
       type : 'text', text : incomingMessage[1]
     });
   }
+  if(incomingMessage[0] === '/tugas'){
+    const return_tugas = async () => {
+      try{
+        const response = await axios.get("https://pyrgoose.firebaseio.com/tugas.json");
+        return client.replyMessage(event.replyToken, {
+          type : 'text', text : response
+        });
+      }
+      catch(err){ 
+        console.log(err);
+      }
+    }
+  }
   if(incomingMessage[0] === '/tugas_post'){
     incomingMessage.shift();
     var command = incomingMessage[0];
@@ -56,7 +69,9 @@ function handleEvent(event) {
     const post_tugas = async() =>{
       try{
         await axios.patch('https://pyrgoose.firebaseio.com/tugas.json', posted);
-        console.log("succeses");
+        return client.replyMessage(event.replyToken, {
+          type : 'text', text : "Tugas berhasil ditambahkan"
+        })
       }
       catch(error){
         console.log(error);
