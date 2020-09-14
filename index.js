@@ -44,6 +44,7 @@ function handleEvent(event) {
     });
   }
   if(incomingMessage[0] === '/tugas'){
+    console.log("mashoookk")
     const return_tugas = async () => {
       try{
         const response = await axios.get("https://pyrgoose.firebaseio.com/tugas.json");
