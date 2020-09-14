@@ -51,7 +51,17 @@ function handleEvent(event) {
     var posted = {
       [command] : body
     };
-    axios.patch('https://pyrgoose.firebaseio.com/tugas.json', JSON.stringify(posted));
+    console.log(command);
+    console.log(body);
+    const post_tugas = async() =>{
+      try{
+        await axios.patch('https://pyrgoose.firebaseio.com/tugas.json', posted);
+      }
+      catch(error){
+        console.log(error);
+      }
+    }
+    post_tugas();
   }
   // const echo = { type: 'text', text: event.message.text };
 
