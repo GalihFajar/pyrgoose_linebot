@@ -51,7 +51,7 @@ function handleEvent(event) {
         var msgStr = "";
         Object.keys(response.data).forEach((key) => {
           if(msgStr === ""){
-            msgStr = "[List Tugas]\n" + "[" + key + "]" + "\n" + response.data[key];
+            msgStr = "[LIST TUGAS]\n\n" + "[" + key + "]" + "\n" + response.data[key];
           }else{
             msgStr = msgStr + "\n" + "\n" + "[" + key + "]" + "\n" + response.data[key];
           }
