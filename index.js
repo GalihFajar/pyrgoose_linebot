@@ -2,6 +2,7 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
+const axios = require('axios');
 
 // create LINE SDK config from env variables
 const config = {
@@ -40,6 +41,15 @@ function handleEvent(event) {
   if(incomingMessage[0] === '/echo'){
     return client.replyMessage(event.replyToken, {
       type : 'text', text : incomingMessage[1]
+    });
+  }
+  if(incomingMessage[0] === '/tugas_post'){
+    incomingMessage.shift();
+    var command = incomingMessage[0];
+    incomingMessage.shift();
+    var body = incomingMessage.join(" ");
+    axios.post('https://pyrgoose.firebaseio.com/tugas.json', {
+      [command] : body
     });
   }
   // const echo = { type: 'text', text: event.message.text };
