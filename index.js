@@ -47,9 +47,9 @@ function handleEvent(event) {
     const return_tugas = async () => {
       try{
         const response = await axios.get("https://pyrgoose.firebaseio.com/tugas.json");
-        console.log(response);
+        console.log(response, "ini response");
         return client.replyMessage(event.replyToken, {
-          type : 'text', text : response
+          type : 'text', text : response.kejartel
         });
       }
       catch(err){ 
