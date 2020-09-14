@@ -50,7 +50,11 @@ function handleEvent(event) {
         console.log(response.data);
         var msgStr = "";
         Object.keys(response.data).forEach((key) => {
-          msgStr = msgStr + "\n" + "\n" + "[" + key + "]" + "\n" + response.data[key];
+          if(msgStr === ""){
+            msgStr = "[List Tugas]\n" + "[" + key + "]" + "\n" + response.data[key];
+          }else{
+            msgStr = msgStr + "\n" + "\n" + "[" + key + "]" + "\n" + response.data[key];
+          }
         });
         console.log(msgStr, "ini gan");
         return client.replyMessage(event.replyToken, {
