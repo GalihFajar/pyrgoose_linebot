@@ -51,6 +51,7 @@ function handleEvent(event) {
         Object.keys(response).forEach((key) => {
           msgStr = myStr + "\n" + "\n" + "[" + key + "]" + "\n" + response[key];
         });
+        console.log(mgsStr);
         return client.replyMessage(event.replyToken, {
           type : 'text', text : msgStr
         });
