@@ -48,9 +48,10 @@ function handleEvent(event) {
     var command = incomingMessage[0];
     incomingMessage.shift();
     var body = incomingMessage.join(" ");
-    axios.post('https://pyrgoose.firebaseio.com/tugas.json', {
+    var posted = {
       [command] : body
-    });
+    };
+    axios.patch('https://pyrgoose.firebaseio.com/tugas.json', JSON.stringify(posted));
   }
   // const echo = { type: 'text', text: event.message.text };
 
