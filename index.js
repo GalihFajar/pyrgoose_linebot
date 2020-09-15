@@ -142,6 +142,12 @@ function handleEvent(event) {
     }
     delete_tugas();
   }
+  if(incomingMessage[0] === '/help'){
+    const help = "/tugas : menampilkan list tugas\n[Admin Only]/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n/tugas_delete : menghapus tugas\n";
+    return client.replyMessage(event.replyToken, {
+      type : 'text', text : help
+    });
+  }
 
 }
 
