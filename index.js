@@ -56,7 +56,6 @@ function handleEvent(event) {
             msgStr = msgStr + "\n" + "\n" + "[" + key + "]" + "\n" + response.data[key];
           }
         });
-        console.log(msgStr, "ini gan");
         return client.replyMessage(event.replyToken, {
           type : 'text', text : msgStr
         });
@@ -94,7 +93,7 @@ function handleEvent(event) {
     }
     post_tugas();
   }
-  
+  //Update Tugas
   if(incomingMessage[0] === '/tugas_update'){
     if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
       return client.replyMessage(event.replyToken, {
@@ -123,6 +122,27 @@ function handleEvent(event) {
     }
     update_tugas();
   }
+  //Delete Tugas
+  if(incomingMessage[0] === '/tugas_delete'){
+    if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
+      return client.replyMessage(event.replyToken, {
+        type : 'text', text : "Unauthorized!"
+      });
+    }
+    const delete_tugas = async() =>{
+      try{
+        await axios.delete(`https://pyrgoose.firebaseio.com/tugas/${incomingMessage[1]}.json`);
+        return client.replyMessage(event.replyToken, {
+          type : 'text', text : "Tugas berhasil ditambahkan"
+        });
+      }
+      catch(error){
+        throw new Error("Error!");
+      }
+    }
+    delete_tugas();
+  }
+
 }
 
 // listen on port
