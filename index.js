@@ -62,14 +62,14 @@ function handleEvent(event) {
     text = text.split(',');
     const text0 = text[0];
     const text1 = text[1];
-    if(meme[memeType] === undefined){
+    if(memeID[memeType] === undefined){
       return client.replyMessage(event.replyToken, {
         type : 'text', text : 'Meme is not available'
       });
     }
     
     const input = {
-      template_id: meme[memeType],
+      template_id: memeID[memeType],
       username: "elf3_",
       password: "299792458"
     };
