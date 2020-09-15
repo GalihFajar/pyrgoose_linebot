@@ -10,6 +10,18 @@ const config = {
   channelSecret: process.env.CHANNEL_SECRET,
 };
 
+const memeID = {
+  batmanslappingrobbin : 438680,
+  onedoesnot : 61579,
+  ancientaliens : 1014710,
+  womanyelling : 188390779,
+  disastergirl : 97984,
+  doge : 8072285,
+  hidethepain : 27813981,
+  yoda : 14371066,
+  toodamnhigh : 61580 
+}
+
 // create LINE SDK client
 const client = new line.Client(config);
 
@@ -41,6 +53,48 @@ function handleEvent(event) {
       type : 'text', text : event.source.userId
     });
   }
+
+  if(incomingMessage[0] === '/creatememe'){
+    incomingMessage.shift();
+    var memeType = incomingMessage[0];
+    incomingMessage.shift();
+    var text = incomingMessage.join(' ');
+    text = text.split(',');
+    const text0 = text[0];
+    const text1 = text[1];
+    if(meme[memeType] === undefined){
+      return client.replyMessage(event.replyToken, {
+        type : 'text', text : 'Meme is not available'
+      });
+    }
+    
+    const input = {
+      template_id: meme[memeType],
+      username: "elf3_",
+      password: "299792458"
+    };
+    if(text0){
+      input['text0'] = text0; 
+    }
+    if(text1){
+      input['text1'] = text1;
+    }
+    const params = new URLSearchParams(input).toString();
+    const create_meme = async () => {
+      try{
+        const response = await axios.post(`https://api.imgflip.com/caption_image?${params}`);
+        return response;
+      }
+      catch(error){ 
+        throw new Error("Error!");
+      }
+    }
+    var response = create_meme();
+    return client.replyMessage(event.replyToken, {
+      type : 'image', originalContentUrl : response.data.url, previewImageUrl : response.data.url
+    });
+  }
+  
 
   //Get Tugas
   if(incomingMessage[0] === '/tugas'){
