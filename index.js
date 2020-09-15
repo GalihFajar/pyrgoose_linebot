@@ -37,7 +37,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   if(incomingMessage[0] === '/getuid'){
-    return client.replyMessage(event.replyMessage, {
+    return client.replyMessage(event.replyToken, {
       type : 'text', text : event.source.userId
     });
   }
