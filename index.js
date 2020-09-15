@@ -32,18 +32,17 @@ app.post('/callback', line.middleware(config), (req, res) => {
 // event handler
 function handleEvent(event) {
   const incomingMessage = event.message.text.split(" ");
-  console.log(event);
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-
-  // create a echoing text message
-  if(incomingMessage[0] === '/echo'){
-    return client.replyMessage(event.replyToken, {
-      type : 'text', text : incomingMessage[1]
+  if(incomingMessage[0] === '/getuid'){
+    return client.replyMessage(event.replyMessage, {
+      type : 'text', text : event.source.userId
     });
   }
+
+  //Get Tugas
   if(incomingMessage[0] === '/tugas'){
     const return_tugas = async () => {
       try{
@@ -68,6 +67,7 @@ function handleEvent(event) {
     }
     return_tugas();
   }
+  //Post Tugas
   if(incomingMessage[0] === '/tugas_post'){
     incomingMessage.shift();
     var command = incomingMessage[0];
