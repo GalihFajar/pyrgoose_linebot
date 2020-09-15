@@ -83,18 +83,16 @@ function handleEvent(event) {
     const create_meme = async () => {
       try{
         const response = await axios.post(`https://api.imgflip.com/caption_image?${params}`);
-        // console.log(response);
-        return response.data;
+        return client.replyMessage(event.replyToken, {
+          type : 'image', originalContentUrl : response.data.data.url, previewImageUrl : response.data.data.url
+        });
       }
       catch(error){ 
         throw new Error("Error!");
       }
     }
-    var response = create_meme();
-    console.log(response);
-    return client.replyMessage(event.replyToken, {
-      type : 'image', originalContentUrl : response.data.url, previewImageUrl : response.data.url
-    });
+    create_meme();
+    
   }
   
 
