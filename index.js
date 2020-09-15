@@ -69,6 +69,11 @@ function handleEvent(event) {
   }
   //Post Tugas
   if(incomingMessage[0] === '/tugas_post'){
+    if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
+      return client.replyMessage(event.replyToken, {
+        type : 'text', text : "Unauthorized!"
+      });
+    }
     incomingMessage.shift();
     var command = incomingMessage[0];
     incomingMessage.shift();
