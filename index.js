@@ -107,7 +107,12 @@ function handleEvent(event) {
     var body = incomingMessage.join(" ");
     const update_tugas = async() =>{
       try{
-        await axios.patch(`https://pyrgoose.firebaseio.com/tugas/${command}/.json`, posted);
+        var current_tugas = await axios.get("https://pyrgoose.firebaseio.com/tugas.json");
+        current_tugas = current_tugas.data[command];
+        const posted = {
+          [command] : current_tugas + "\n" + body
+        }
+        await axios.patch('https://pyrgoose.firebaseio.com/tugas.json', posted);
         return client.replyMessage(event.replyToken, {
           type : 'text', text : "Tugas berhasil ditambahkan"
         })
