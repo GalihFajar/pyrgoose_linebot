@@ -83,6 +83,7 @@ function handleEvent(event) {
     const create_meme = async () => {
       try{
         const response = await axios.post(`https://api.imgflip.com/caption_image?${params}`);
+        console.log(response);
         return response;
       }
       catch(error){ 
