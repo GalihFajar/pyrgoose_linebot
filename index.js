@@ -47,7 +47,7 @@ function handleEvent(event) {
     const return_tugas = async () => {
       try{
         const response = await axios.get("https://pyrgoose.firebaseio.com/tugas.json");
-        console.log(response.data);
+
         var msgStr = "";
         Object.keys(response.data).forEach((key) => {
           if(msgStr === ""){
@@ -81,8 +81,6 @@ function handleEvent(event) {
     var posted = {
       [command] : body
     };
-    console.log(command);
-    console.log(body);
     const post_tugas = async() =>{
       try{
         await axios.patch('https://pyrgoose.firebaseio.com/tugas.json', posted);
@@ -96,10 +94,30 @@ function handleEvent(event) {
     }
     post_tugas();
   }
-  // const echo = { type: 'text', text: event.message.text };
-
-  // // use reply API
-  // return client.replyMessage(event.replyToken, echo);
+  
+  if(incomingMessage[0] === '/tugas_update'){
+    if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
+      return client.replyMessage(event.replyToken, {
+        type : 'text', text : "Unauthorized!"
+      });
+    }
+    incomingMessage.shift();
+    var command = incomingMessage[0];
+    incomingMessage.shift();
+    var body = incomingMessage.join(" ");
+    const update_tugas = async() =>{
+      try{
+        await axios.patch(`https://pyrgoose.firebaseio.com/tugas/${command}/.json`, posted);
+        return client.replyMessage(event.replyToken, {
+          type : 'text', text : "Tugas berhasil ditambahkan"
+        })
+      }
+      catch(error){
+        console.log(error);
+      }
+    }
+    update_tugas();
+  }
 }
 
 // listen on port
