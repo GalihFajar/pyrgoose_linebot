@@ -219,7 +219,7 @@ function handleEvent(event) {
     delete_tugas();
   }
   if(incomingMessage[0] === '/help'){
-    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n[ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat";
+    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat\n\n[ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas";
     return client.replyMessage(event.replyToken, {
       type : 'text', text : help
     });
