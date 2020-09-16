@@ -13,13 +13,17 @@ const config = {
 const memeID = {
   batmanslappingrobbin : 438680,
   onedoesnot : 61579,
-  ancientaliens : 1014710,
+  ancientaliens : 101470,
   womanyelling : 188390779,
   disastergirl : 97984,
   doge : 8072285,
   hidethepain : 27813981,
   yoda : 14371066,
-  toodamnhigh : 61580 
+  toodamnhigh : 61580,
+  distractedboyfriend : 112126428,
+  tuxwinnethepooh : 178591752,
+  unsettledtom : 175540452,
+  aintnobodygottime : 442575
 }
 
 // create LINE SDK client
@@ -55,6 +59,11 @@ function handleEvent(event) {
   }
 
   if(incomingMessage[0] === '/creatememe'){
+    if(incomingMessage[1] === '-h'){
+      return client.replyMessage(event.replyToken, {
+        type : 'text', text : "command -> /creatememe <jenismeme> <text1>,<text2>\n"
+      });
+    }
     incomingMessage.shift();
     var memeType = incomingMessage[0];
     incomingMessage.shift();
@@ -91,8 +100,21 @@ function handleEvent(event) {
         throw new Error("Error!");
       }
     }
-    create_meme();
-    
+    create_meme(); 
+  }
+  //memelist
+  if(incomingMessage[0] === '/memelist'){
+    var msgStr = "";
+    Object.keys(memeID).forEach((key) => {
+      if(msgStr === ""){
+        msgStr = "[LIST MEME]\n\n" + key;
+      }else{
+        msgStr = msgStr + "\n"+ key + "\n";
+      }
+    });
+    return client.replyMessage(event.replyToken, {
+      type : 'text', text : msgStr
+    });
   }
   
 
@@ -197,7 +219,7 @@ function handleEvent(event) {
     delete_tugas();
   }
   if(incomingMessage[0] === '/help'){
-    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n[ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas\n\n";
+    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n[ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/mememelist : menampilkan jenis-jenis meme yang dapat dibuat";
     return client.replyMessage(event.replyToken, {
       type : 'text', text : help
     });
