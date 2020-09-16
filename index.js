@@ -61,7 +61,7 @@ function handleEvent(event) {
   if(incomingMessage[0] === '/creatememe'){
     if(incomingMessage[1] === '-h'){
       return client.replyMessage(event.replyToken, {
-        type : 'text', text : "command -> /creatememe <jenismeme> <text1>,<text2>\n"
+        type : 'text', text : "/creatememe <jenismeme> <text1>,<text2>\n"
       });
     }
     incomingMessage.shift();
@@ -109,7 +109,7 @@ function handleEvent(event) {
       if(msgStr === ""){
         msgStr = "[LIST MEME]\n\n" + key;
       }else{
-        msgStr = msgStr + "\n"+ key + "\n";
+        msgStr = msgStr + "\n"+ key;
       }
     });
     return client.replyMessage(event.replyToken, {
@@ -219,7 +219,7 @@ function handleEvent(event) {
     delete_tugas();
   }
   if(incomingMessage[0] === '/help'){
-    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n[ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/mememelist : menampilkan jenis-jenis meme yang dapat dibuat";
+    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n[ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat";
     return client.replyMessage(event.replyToken, {
       type : 'text', text : help
     });
