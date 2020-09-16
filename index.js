@@ -144,11 +144,11 @@ function handleEvent(event) {
   }
   //Post Tugas
   if(incomingMessage[0] === '/tugas_post'){
-    if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
-      return client.replyMessage(event.replyToken, {
-        type : 'text', text : "Unauthorized!"
-      });
-    }
+    // if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
+    //   return client.replyMessage(event.replyToken, {
+    //     type : 'text', text : "Unauthorized!"
+    //   });
+    // }
     incomingMessage.shift();
     var command = incomingMessage[0];
     incomingMessage.shift();
@@ -171,11 +171,11 @@ function handleEvent(event) {
   }
   //Update Tugas
   if(incomingMessage[0] === '/tugas_update'){
-    if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
-      return client.replyMessage(event.replyToken, {
-        type : 'text', text : "Unauthorized!"
-      });
-    }
+    // if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
+    //   return client.replyMessage(event.replyToken, {
+    //     type : 'text', text : "Unauthorized!"
+    //   });
+    // }
     incomingMessage.shift();
     var command = incomingMessage[0];
     incomingMessage.shift();
@@ -200,11 +200,11 @@ function handleEvent(event) {
   }
   //Delete Tugas
   if(incomingMessage[0] === '/tugas_delete'){
-    if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
-      return client.replyMessage(event.replyToken, {
-        type : 'text', text : "Unauthorized!"
-      });
-    }
+    // if(event.source.userId !== 'Ub5b1cdca57cc02f277da5628b76614e7'){
+    //   return client.replyMessage(event.replyToken, {
+    //     type : 'text', text : "Unauthorized!"
+    //   });
+    // }
     const delete_tugas = async() =>{
       try{
         await axios.delete(`https://pyrgoose.firebaseio.com/tugas/${incomingMessage[1]}.json`);
@@ -219,7 +219,7 @@ function handleEvent(event) {
     delete_tugas();
   }
   if(incomingMessage[0] === '/help'){
-    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat\n\n[ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas";
+    const help = "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat\n\n[LAGI BUKAN ADMIN ONLY]\n\n/tugas_post : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete : menghapus tugas";
     return client.replyMessage(event.replyToken, {
       type : 'text', text : help
     });
