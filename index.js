@@ -46,7 +46,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 });
 
 setInterval(() =>{
-  console.log(new Date());
+  console.log(new Date().toTimeString());
 }, 1000);
 
 // event handler
