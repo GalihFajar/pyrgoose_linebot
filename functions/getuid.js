@@ -4,4 +4,4 @@ const getuid = (event) => {
       });
 };
 
-export default getuid;
+module.exports = getuid;
