@@ -45,10 +45,6 @@ app.post('/callback', line.middleware(config), (req, res) => {
     });
 });
 
-setInterval(() =>{
-  console.log(new Date().toTimeString());
-}, 1000);
-
 // event handler
 function handleEvent(event) {
   const incomingMessage = event.message.text.split(" ");
@@ -57,6 +53,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   if(incomingMessage[0] === '/getuid'){
+    console.log(event);
     return client.replyMessage(event.replyToken, {
       type : 'text', text : event.source.userId
     });
