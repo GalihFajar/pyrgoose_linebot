@@ -26,7 +26,11 @@ const memeID = {
   distractedboyfriend : 112126428,
   tuxwinnethepooh : 178591752,
   unsettledtom : 175540452,
-  aintnobodygottime : 442575
+  aintnobodygottime : 442575,
+  facepalm: 1509839,
+  surprisedpikachu : 155067746,
+  isthisapigeon : 100777631
+
 }
 
 // create LINE SDK client
