@@ -56,7 +56,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   if(incomingMessage[0] === '/getuid'){
-    return getuid();
+    return getuid(event, client);
   }
 
   if(incomingMessage[0] === '/creatememe'){
