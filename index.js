@@ -1,8 +1,11 @@
 'use strict';
 
+import getuid from './functions/getuid';
+
 const line = require('@line/bot-sdk');
 const express = require('express');
 const axios = require('axios');
+
 
 // create LINE SDK config from env variables
 const config = {
@@ -53,18 +56,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   if(incomingMessage[0] === '/getuid'){
-    console.log(event);
-    return client.replyMessage(event.replyToken, {
-      type : 'text', text : event.source.userId
-    });
-  }
-
-  if(incomingMessage[0] === '/hitmelater'){
-    setTimeout(() => {
-      return client.replyMessage(event.replyToken, {
-        type : 'text', text : "HIT YOU!"
-      })
-    }, 3000);
+    return getuid();
   }
 
   if(incomingMessage[0] === '/creatememe'){
@@ -85,7 +77,6 @@ function handleEvent(event) {
         type : 'text', text : 'Meme is not available'
       });
     }
-    
     const input = {
       template_id: memeID[memeType],
       username: "elf3_",
