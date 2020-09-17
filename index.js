@@ -1,6 +1,6 @@
 'use strict';
 
-const getuid = require("./functions");
+const getuid = require("./functions/getuid");
 
 const line = require('@line/bot-sdk');
 const express = require('express');
