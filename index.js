@@ -59,6 +59,14 @@ function handleEvent(event) {
     });
   }
 
+  if(incomingMessage[0] === '/hitmelater'){
+    setTimeout(() => {
+      return client.replyToken(event.replyToken, {
+        type : 'text', text : "HIT YOU!"
+      })
+    }, 3000);
+  }
+
   if(incomingMessage[0] === '/creatememe'){
     if(incomingMessage[1] === '-h'){
       return client.replyMessage(event.replyToken, {
