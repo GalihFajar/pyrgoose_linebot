@@ -1,6 +1,6 @@
 'use strict';
 
-import getuid from './functions/getuid';
+// import getuid from './functions/getuid';
 
 const line = require('@line/bot-sdk');
 const express = require('express');
@@ -55,9 +55,9 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-  if(incomingMessage[0] === '/getuid'){
-    return getuid();
-  }
+  // if(incomingMessage[0] === '/getuid'){
+  //   return getuid();
+  // }
 
   if(incomingMessage[0] === '/creatememe'){
     if(incomingMessage[1] === '-h'){
