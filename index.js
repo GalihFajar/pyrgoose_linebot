@@ -45,6 +45,10 @@ app.post('/callback', line.middleware(config), (req, res) => {
     });
 });
 
+setInterval(() =>{
+  console.log(new Date());
+}, 1000);
+
 // event handler
 function handleEvent(event) {
   const incomingMessage = event.message.text.split(" ");
