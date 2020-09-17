@@ -61,7 +61,7 @@ function handleEvent(event) {
 
   if(incomingMessage[0] === '/hitmelater'){
     setTimeout(() => {
-      return client.replyToken(event.replyToken, {
+      return client.replyMessage(event.replyToken, {
         type : 'text', text : "HIT YOU!"
       })
     }, 3000);
