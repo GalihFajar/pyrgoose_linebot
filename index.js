@@ -24,7 +24,7 @@ const memeID = {
   yoda : 14371066,
   toodamnhigh : 61580,
   distractedboyfriend : 112126428,
-  tuxwinnethepooh : 178591752,
+  tuxwinniethepooh : 178591752,
   unsettledtom : 175540452,
   aintnobodygottime : 442575,
   facepalm: 1509839,
