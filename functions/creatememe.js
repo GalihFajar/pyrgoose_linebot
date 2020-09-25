@@ -41,3 +41,5 @@ const creatememe = (event, client) => {
         }
       }
 }
+
+module.exports = creatememe;
