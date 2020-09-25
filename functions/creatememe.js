@@ -62,7 +62,7 @@ const creatememe = (event, client) => {
           throw new Error("Error!");
         }
       }
-      create_meme();
+     return create_meme();
 }
 
 module.exports = creatememe;
