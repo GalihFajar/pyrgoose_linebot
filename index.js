@@ -66,7 +66,7 @@ function handleEvent(event) {
   }
 
   if(incomingMessage[0] === '/creatememe'){
-    createMeme(event, client);
+    return createMeme(event, client);
   }
   //memelist
   if(incomingMessage[0] === '/memelist'){
