@@ -1,3 +1,25 @@
+
+const memeID = {
+  batmanslappingrobbin : 438680,
+  onedoesnot : 61579,
+  ancientaliens : 101470,
+  womanyelling : 188390779,
+  disastergirl : 97984,
+  doge : 8072285,
+  hidethepain : 27813981,
+  yoda : 14371066,
+  toodamnhigh : 61580,
+  distractedboyfriend : 112126428,
+  tuxwinniethepooh : 178591752,
+  unsettledtom : 175540452,
+  aintnobodygottime : 442575,
+  facepalm: 1509839,
+  surprisedpikachu : 155067746,
+  isthisapigeon : 100777631
+
+}
+
+
 const creatememe = (event, client) => {
   const incomingMessage = event.message.text.split(" ");
     if(incomingMessage[1] === '-h'){
@@ -40,6 +62,7 @@ const creatememe = (event, client) => {
           throw new Error("Error!");
         }
       }
+      create_meme();
 }
 
 module.exports = creatememe;
