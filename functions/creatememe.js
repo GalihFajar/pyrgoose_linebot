@@ -53,8 +53,9 @@ const creatememe = (event, client) => {
       const params = new URLSearchParams(input).toString();
       const create_meme = async () => {
         try{
+          console.log("masuk")
           const response = await axios.post(`https://api.imgflip.com/caption_image?${params}`);
-          console.log(response);
+          console.log(response, "ini response");
           return client.replyMessage(event.replyToken, {
             type : 'image', originalContentUrl : response.data.data.url, previewImageUrl : response.data.data.url
           });
