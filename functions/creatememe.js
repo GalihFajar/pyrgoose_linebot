@@ -1,4 +1,5 @@
 const creatememe = (event, client) => {
+  const incomingMessage = event.message.text.split(" ");
     if(incomingMessage[1] === '-h'){
         return client.replyMessage(event.replyToken, {
           type : 'text', text : "/creatememe <jenismeme> <text1>,<text2>\n"
