@@ -15,10 +15,7 @@ const axios = require("axios");
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET,
-  firebaseurl: process.env.FIREBASE_URL,
 };
-
-const firebaseurl = config.firebaseurl;
 
 const memeID = {
   batmanslappingrobbin: 438680,
@@ -120,7 +117,7 @@ function handleEvent(event) {
 
   if (incomingMessage[0] === "/help") {
     const help =
-      "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat\n\n/tugas_post <nama matkul> <tugas> : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update <nama matkul> <tugas> : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete <nama matkul> : menghapus tugas";
+      "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat\n\n/tugas_post <nama matkul> <tugas> : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update <nama matkul> <tugas> : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete <nama matkul> : menghapus tugas\n\n/about : about";
     return client.replyMessage(event.replyToken, {
       type: "text",
       text: help,
