@@ -111,7 +111,7 @@ function handleEvent(event) {
 
   if (incomingMessage[0] === "/help") {
     const help =
-      "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat\n\n/tugas_post <nama matkul> <tugas> : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update <nama matkul> <tugas> : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete <nama matkul> : menghapus tugas\n\n/about : about";
+      "[COMMAND LIST]\n\n/tugas : menampilkan list tugas\n\n/creatememe : bikin meme (see /creatememe -h for more info)\n\n/memelist : menampilkan jenis-jenis meme yang dapat dibuat\n\n/tugas_post <nama matkul> <tugas> : menambah tugas (overwrite kalo ada yang lama)\n\n/tugas_update <nama matkul> <tugas> : menambah tugas (nggak overwrite, tapi append ke yang ada)\n\n/tugas_delete <nama matkul> : menghapus tugas";
     return client.replyMessage(event.replyToken, {
       type: "text",
       text: help,
