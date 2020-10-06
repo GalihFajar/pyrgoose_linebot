@@ -18,6 +18,8 @@ const config = {
   firebaseurl: process.env.FIREBASE_URL,
 };
 
+const firebaseurl = config.firebaseurl;
+
 const memeID = {
   batmanslappingrobbin: 438680,
   onedoesnot: 61579,
