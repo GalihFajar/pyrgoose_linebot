@@ -3,10 +3,7 @@ const firebaseurl = process.env.FIREBASE_URL;
 
 const deleteTugas = async (incomingMessage, event, client) => {
   try {
-    console.log(firebaseurl, " INI FIREBASE URL");
-    await axios.delete(
-      `https://pyrgoose.firebaseio.com/tugas/${incomingMessage[1]}.json`
-    );
+    await axios.delete(`${firebaseurl}tugas/${incomingMessage[1]}.json`);
     return client.replyMessage(event.replyToken, {
       type: "text",
       text: "Tugas berhasil dihapus!",
