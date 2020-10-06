@@ -1,5 +1,5 @@
 const axios = require("axios");
-const firebaseurl = require("../index");
+const firebaseurl = require("../index").firebaseurl;
 
 const deleteTugas = async (incomingMessage, event, client) => {
   try {

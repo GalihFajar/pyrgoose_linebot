@@ -134,5 +134,5 @@ app.listen(port, () => {
 });
 
 module.exports = {
-  firebaseurl,
+  firebaseurl: firebaseurl,
 };
