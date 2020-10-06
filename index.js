@@ -19,6 +19,7 @@ const config = {
 };
 
 const firebaseurl = config.firebaseurl;
+console.log(firebaseurl, "ini fire");
 
 const memeID = {
   batmanslappingrobbin: 438680,
