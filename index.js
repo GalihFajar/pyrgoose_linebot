@@ -15,6 +15,7 @@ const axios = require("axios");
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET,
+  firebaseurl: process.env.FIREBASE_URL,
 };
 
 const memeID = {
@@ -66,6 +67,12 @@ function handleEvent(event) {
     return getuid(event, client);
   }
 
+  if (incomingMessage[0] === "/getfirebase") {
+    return client.replyMessage(event.replyToken, {
+      type: "text",
+      text: config.firebaseurl,
+    });
+  }
   if (incomingMessage[0] === "/creatememe") {
     return createMeme(event, client);
   }
