@@ -1,18 +1,20 @@
-# Echo Bot
+# Pyrgoose Bot
 
-An example LINE bot just to echo messages
+A bot to fulfill's Telecommunications Engineering Students at ITB's needs
 
 ## How to use
 
+If you've never make a LineBot before, please refer to Line's official **'Building a Bot'** docs : https://developers.line.biz/en/docs/messaging-api/building-bot/
+
 ### Install deps
 
-``` shell
+```shell
 $ npm install
 ```
 
 ### Configuration
 
-``` shell
+```shell
 $ export CHANNEL_SECRET=YOUR_CHANNEL_SECRET
 $ export CHANNEL_ACCESS_TOKEN=YOUR_CHANNEL_ACCESS_TOKEN
 $ export PORT=1234
@@ -20,7 +22,7 @@ $ export PORT=1234
 
 ### Run
 
-``` shell
+```shell
 $ node .
 ```
 

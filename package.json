@@ -1,7 +1,7 @@
 {
-  "name": "echo-bot",
+  "name": "pyrgoose-bot",
   "version": "0.0.0",
-  "description": "An example LINE bot just to echo messages",
+  "description": "A bot to fulfill's Telecommunications Engineering Students at ITB's needs",
   "main": "index.js",
   "scripts": {
     "start": "node ."
