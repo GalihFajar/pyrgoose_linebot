@@ -3,6 +3,7 @@
 const getuid = require("./functions/getuid");
 const createMeme = require("./functions/creatememe");
 const getTugas = require("./functions/getTugas");
+const postTugas = require("./functions/postTugas");
 
 
 const line = require('@line/bot-sdk');
