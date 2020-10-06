@@ -1,4 +1,4 @@
-const deleteTugas = async (event, client) => {
+const deleteTugas = async (incomingMessage, event, client) => {
   try {
     await axios.delete(
       `https://pyrgoose.firebaseio.com/tugas/${incomingMessage[1]}.json`
