@@ -2,6 +2,8 @@
 
 const getuid = require("./functions/getuid");
 const createMeme = require("./functions/creatememe");
+const getTugas = require("./functions/getTugas");
+
 
 const line = require('@line/bot-sdk');
 const express = require('express');
@@ -86,27 +88,7 @@ function handleEvent(event) {
 
   //Get Tugas
   if(incomingMessage[0] === '/tugas'){
-    const return_tugas = async () => {
-      try{
-        const response = await axios.get("https://pyrgoose.firebaseio.com/tugas.json");
-
-        var msgStr = "";
-        Object.keys(response.data).forEach((key) => {
-          if(msgStr === ""){
-            msgStr = "[LIST TUGAS]\n\n" + "[" + key + "]" + "\n" + response.data[key];
-          }else{
-            msgStr = msgStr + "\n" + "\n" + "[" + key + "]" + "\n" + response.data[key];
-          }
-        });
-        return client.replyMessage(event.replyToken, {
-          type : 'text', text : msgStr
-        });
-      }
-      catch(err){ 
-        new Error("Cannot get tugas!")
-      }
-    }
-    return_tugas();
+    return getTugas(event, client);
   }
   //Post Tugas
   if(incomingMessage[0] === '/tugas_post'){
