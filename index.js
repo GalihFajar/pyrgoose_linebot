@@ -99,7 +99,7 @@ function handleEvent(event) {
   }
   //Delete Tugas
   if (incomingMessage[0] === "/tugas_delete") {
-    return deleteTugas(event, client);
+    return deleteTugas(incomingMessage, event, client);
   }
   if (incomingMessage[0] === "/help") {
     const help =
